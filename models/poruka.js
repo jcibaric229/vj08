@@ -1,20 +1,5 @@
 const mongoose = require('mongoose')
 
-const password = process.env.ATLAS_PASS
-const dbname = 'poruke-api'
-const url = `mongodb+srv://oarwa-gz:${password}@cluster0.l0kev.mongodb.net/${dbname}?retryWrites=true&w=majority`
-
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-}).then(result => {
-  console.log("Spojeni smo na bazu");
-}).catch(error => {
-  console.log("Greška pri spajanju", error.message);
-})
-
 const porukaSchema = new mongoose.Schema({
   sadrzaj: {
     type: String,
